@@ -97,5 +97,73 @@ The Streamlit interface will open in your default web browser at `http://localho
 - Generated documentation and analysis results are stored in the `outputs/repository` directory
 - Documentation is generated in markdown format (`docs.md`)
 
+# Dask Documentation Example
+```
+## Overview
+Dask is a flexible parallel computing library for analytics. It provides dynamic task scheduling optimized for computation graphs, and Big Data collections like arrays, dataframes, and machine learning.
+
+## Modules & Packages
+
+### dask.array
+- Provides multi-dimensional arrays similar to NumPy.
+- Main classes:
+  - `dask.array.Array`
+  - `dask.array.core.Array`
+- Key functions:
+  - `dask.array.from_array()`
+  - `dask.array.ones()`
+  - `dask.array.zeros()`
+
+### dask.dataframe
+- Provides parallel DataFrame objects similar to pandas.
+- Main classes:
+  - `dask.dataframe.DataFrame`
+  - `dask.dataframe.Series`
+- Key functions:
+  - `read_csv()`
+  - `concat()`
+  - `merge()`
+
+### dask.delayed
+- Allows task graph creation from normal Python functions.
+- Key functions:
+  - `dask.delayed()`
+  - `dask.compute()`
+
+## Usage Example
+
+```python
+import dask.array as da
+
+# Create a random array and compute its sum
+x = da.random.random((10000, 10000), chunks=(1000, 1000))
+y = x.sum()
+y.compute()
+
++---------------------+
+|       Scheduler      |
++---------------------+
+| - submit()           |
+| - gather()           |
+| - map()              |
++----------+----------+
+           |
+           v
++---------------------+
+|       TaskGraph      |
++---------------------+
+| - add_task()         |
+| - visualize()        |
++----------+----------+
+           |
+           v
++---------------------+
+|       Delayed        |
++---------------------+
+| - compute()          |
+| - persist()          |
++---------------------+
+
+```
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
