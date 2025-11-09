@@ -31,8 +31,7 @@ These agents **collaborate in a pipeline** to analyze repositories (especially t
 ---
 
 ## 🔄 Workflow
-
-```mermaid
+```
 flowchart LR
     A[Clone Repo] --> B[Analyze Structure]
     B --> C[Summarize README]
@@ -80,8 +79,7 @@ cd <codebase >
 ### 1. Start the Backend Server
 From the project root directory:
 ```bash
-cd backend
-jac serve main.jac
+jac serve codebase_genius.jac
 ```
 The  server will start on `http://localhost:8000`
 
@@ -94,8 +92,8 @@ streamlit run app.py
 The Streamlit interface will open in your default web browser at `http://localhost:8501`
 
 ## Output and Documentation
-- Generated documentation and analysis results are stored in the `outputs/repository` directory
-- Documentation is generated in markdown format (`docs.md`)
+- Generated documentation and analysis results are stored in the `outputs` directory
+- Documentation is generated in markdown format (`documents.md`)
 
 # Dask Documentation Example
 ```
